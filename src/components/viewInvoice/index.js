@@ -307,8 +307,7 @@ class PaperSheet extends React.Component {
           /** reload state */
           axios
             .get(
-              `${
-                server.url
+              `${server.url
               }/orders/${this.props.history.location.search.replace('?', '')}`
             )
             .then((res) => {
@@ -333,8 +332,7 @@ class PaperSheet extends React.Component {
           /** reload state */
           axios
             .get(
-              `${
-                server.url
+              `${server.url
               }/orders/${this.props.history.location.search.replace('?', '')}`
             )
             .then((res) => {
@@ -497,11 +495,11 @@ class PaperSheet extends React.Component {
                   ? false
                   : true
                 : data.dest_geo_out.split('|').includes('0')
-                ? true
-                : false
+                  ? true
+                  : false
             )}
             {localStorage.getItem('role') === 'admin' &&
-            data.status === 'match' ? (
+              data.status === 'match' ? (
               <Button
                 variant="contained"
                 style={{ backgroundColor: '#5CB85C', color: 'white' }}
@@ -542,7 +540,7 @@ class PaperSheet extends React.Component {
               </Button>
             ) : null}
             {data.status === 'GPS_error' &&
-            localStorage.getItem('role') === 'Administrator' ? (
+              localStorage.getItem('role') === 'Administrator' ? (
               <Button
                 variant="contained"
                 color="secondary"
@@ -651,7 +649,7 @@ class PaperSheet extends React.Component {
 
             {(data.issuer === localStorage.getItem('username') ||
               localStorage.getItem('role') === 'admin') &&
-            data.status !== 'confirm' ? (
+              data.status !== 'confirm' ? (
               <Button
                 variant="contained"
                 size="small"
@@ -801,44 +799,44 @@ class PaperSheet extends React.Component {
               Product*:{' '}
               {data.products
                 ? data.products.split('|').map((product) => {
-                    if (product === 'Pallet') {
-                      return (
-                        <Chip
-                          label={`Pallet [${data.num_pallet}]`}
-                          key={product}
-                          color="primary"
-                        />
-                      );
-                    } else if (product === 'Rack') {
-                      return (
-                        <Chip
-                          label={`Rack [${data.num_rack}]`}
-                          key={product}
-                          color="primary"
-                        />
-                      );
-                    } else if (product === 'Dies') {
-                      return (
-                        <Chip
-                          label={`Dies [${data.num_die}]`}
-                          key={product}
-                          color="primary"
-                        />
-                      );
-                    } else if (product === 'Box') {
-                      return (
-                        <Chip
-                          label={`Box [${data.num_box}]`}
-                          key={product}
-                          color="primary"
-                        />
-                      );
-                    } else {
-                      return (
-                        <Chip label={product} key={product} color="primary" />
-                      );
-                    }
-                  })
+                  if (product === 'Pallet') {
+                    return (
+                      <Chip
+                        label={`Pallet [${data.num_pallet}]`}
+                        key={product}
+                        color="primary"
+                      />
+                    );
+                  } else if (product === 'Rack') {
+                    return (
+                      <Chip
+                        label={`Rack [${data.num_rack}]`}
+                        key={product}
+                        color="primary"
+                      />
+                    );
+                  } else if (product === 'Dies') {
+                    return (
+                      <Chip
+                        label={`Dies [${data.num_die}]`}
+                        key={product}
+                        color="primary"
+                      />
+                    );
+                  } else if (product === 'Box') {
+                    return (
+                      <Chip
+                        label={`Box [${data.num_box}]`}
+                        key={product}
+                        color="primary"
+                      />
+                    );
+                  } else {
+                    return (
+                      <Chip label={product} key={product} color="primary" />
+                    );
+                  }
+                })
                 : []}
             </Grid>
             <Grid item xs={6} className={classes.box}>
